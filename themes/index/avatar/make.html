@@ -1,0 +1,160 @@
+{include file="com/head" /}
+<div id="m-container">
+<div class="imo-container am-container">
+
+<style>.am-alert p{color:#fff}.single-content strong { margin-top: 0;color: #606060;font-size: 16px;font-weight: 700;border-left: 0;padding-left: 0;display: initial;}</style><div class="main am-u-sm-12 am-u-md-8 am-u-lg-8 cont"><div class="qqfengget">
+
+<header class="single-header"><legend>{$list.title}<p class="edit"></p></legend>
+<div class="am-alert am-alert-danger" data-am-alert="" style="border-radius: 4px;"><button class="am-close" type="button">×</button><p>小提示：可使用空格进行适当调整文字位置</p></div>
+</header>
+
+<div class="single-content">
+
+<section class="am-panel am-panel-warning">
+	<header class="am-panel-hd">
+		<h3 class="am-panel-title">
+			填写基本信息</h3>
+	</header>
+	<div class="am-panel-bd">
+		<label>输入文字</label>
+		<div class="am-form">
+			<input id="One" maxlength="15" name="One" placeholder="" type="text"></div>
+
+  {if condition="$list.location2 neq '0,0'"}
+		<label>输入文字</label>
+		<div class="am-form">
+			<input id="two" maxlength="15" name="two" placeholder="" type="text"></div>
+  {/if}
+		<br>
+		<button class="am-btn  am-btn-warning am-btn-block am-radius" id="submit" type="button">立即生成表白图</button></div>
+</section>
+<div id="result" style="display:none;text-align:center">
+	<div class="am-alert am-alert-success" data-am-alert="">
+		<button class="am-close" type="button">×</button>
+		<p>完美生成！长按或右击将图片保存到本地吧！</p>
+	</div>
+	<div class="am-panel am-panel-default">
+		<div class="am-panel-bd">
+			<img data-baiduimageplus-ignore="" id="pic" src="" width="100%"></div>
+	</div>
+</div>
+<div class="am-panel am-panel-warning" id="sc">
+	<div class="am-panel-hd">默认效果</div>
+	<div class="am-panel-bd">
+		<img src="{$list.img}" id="imgs" style="width:100%"></div>
+</div>
+<input type="hidden" id="ids" value="{$list.id}">
+
+	<script>
+	var one = document.getElementById('One');
+	var two = document.getElementById('two');
+	var sc = document.getElementById('sc');
+	var pic = document.getElementById('pic');
+	var go = document.getElementById('result');
+	var btn = document.getElementById('submit');
+	btn.onclick = function(){
+		if (one.value.length<2 ) {
+			alert('请认真填写')
+		}else{
+        $.ajax({
+            type: 'POST',
+            url: '{:url('imgs')}',
+            dataType: 'json',
+            data:{
+                id:$('#ids').val(),
+                one:$('#One').val(),
+                two:$('#two').val()
+            },
+            success: function(data){
+                if (data.success ==0) {
+                    var url ='/'+data.msg
+                    $('#imgs').attr('src',url);
+                }else{
+                  alert('网络不好请稍后重试!');
+                }
+            },
+            error:function(data) {
+                console.log(data.msg);
+            },
+        }); 
+		}
+	}
+    </script>
+
+		<div class="single-copyright"><i class="am-icon-warning"></i> 未经允许不得转载：<a href="/">零晨入口</a> &raquo; <a href="#">{$list.title}</a></div>
+
+<div style="overflow:scroll;overflow-x:hidden;text-align:center;padding:0 10px 0 0">
+
+</div>
+
+<div class="am-cf"></div><br/><div class="bdsharebuttonbox"><span class="fxd">分享到：</span><a class="bds_qzone" data-cmd="qzone"></a><a class="bds_tsina" data-cmd="tsina"></a><a class="bds_weixin" data-cmd="weixin"></a><a class="bds_tqq" data-cmd="tqq"></a><a class="bds_sqq" data-cmd="sqq"></a><a class="bds_bdhome" data-cmd="bdhome"></a><a class="bds_tqf" data-cmd="tqf"></a><a class="bds_renren" data-cmd="renren"></a><a class="bds_diandian" data-cmd="diandian"></a><a class="bds_youdao" data-cmd="youdao"></a><a class="bds_ty" data-cmd="ty"></a><a class="bds_kaixin001" data-cmd="kaixin001"></a><a class="bds_taobao" data-cmd="taobao"></a><a class="bds_douban" data-cmd="douban"></a><a class="bds_fbook" data-cmd="fbook"></a><a class="bds_twi" data-cmd="twi"></a><a class="bds_mail" data-cmd="mail"></a><a class="bds_copy" data-cmd="copy"></a></div>
+<br/>
+
+
+</div>
+
+
+<div class="clear"></div>
+<nav class="article-nav">
+
+{if condition="$shang['start'] eq 0"}
+    <span class="article-nav-prev"> 上一篇：<a href='#'>没有啦</a> </span>
+{else /} 
+     <span class="article-nav-prev"> 上一篇：<a href='/index/pic/make/{$shang.id}'>{$shang.title}</a> </span>
+{/if}
+
+{if condition="$xia['start'] eq 0"}
+    <span class="article-nav-next"> 下一篇：<a href='#'>没有啦</a> </span>
+{else /} 
+    <span class="article-nav-next"> 下一篇：<a href='/index/pic/make/{$xia.id}'>{$xia.title}</a> </span>
+{/if}
+</nav>
+
+<!--
+<h3 class="htitle"><strong>猜你喜欢</strong></h3>
+<div style="overflow: hidden"></div>
+-->
+
+<!--<h3 class="htitle"><strong>礼物推荐</strong></h3>
+<div style="overflow: hidden"><a data-type="2" biz-keyword="创意礼物" data-tmpl="720x220" data-tmplid="209" data-rd="2" data-style="2" data-border="1" href="#"></a></div>
+<h3 class="htitle"><strong>更多精彩</strong></h3>-->
+<h3 class="htitle"><strong>相关推荐</strong></h3>
+
+
+
+
+	<!-- 相关文章 -->
+	<div class="xiangguan">
+      {volist name="videolist" id="vo"}
+						<div class="am-u-lg-3 am-u-md-3 am-u-sm-6" style="padding:6px">
+				<a href="/index/pic/make/{$vo.id}"><img class="xianguanimg" src="{$vo.img}"/></a>
+					<p class="post-related-title xguanp"><a href="/index/pic/make/{$vo.id}" rel="bookmark" class="post-title" title="{$vo.title}">{$vo.title}</a></ps>               
+	            </div>
+      {/volist}
+	</div>
+	<div class="am-cf"></div>
+<!-- 	<h3 class="htitle"><strong>评论互动</strong></h3> -->
+
+
+
+
+ </div></div>
+
+ 
+ <div class="sidebar am-u-lg-4 am-u-md-4 am-u-sm-12">
+	<div class="sidebar">
+		<section class="widget widget_text"><h3 class="widget_tit">创意表白</h3>			
+			
+			<a href="/video" target= "_blank" ><img src="/public/static/home/picture/r1.png" style="width:100%;"></a>
+		</section>
+	</div>		
+	
+</div>
+
+
+</div>
+
+
+
+
+{include file="com/bottom" /}

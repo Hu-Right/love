@@ -1,0 +1,34 @@
+{include file="com/head" /}
+<div id="m-container"><div class="imo-container am-container">
+<style>
+.articles li:hover {-webkit-transition: all .5s ease 0s;-moz-transition: all .5s ease 0s;-o-transition: all .5s ease 0s;-moz-transform: translate(0px,-5px);-webkit-transform: translate(0px,-5px);-o-transform: translate(0px,-5px);-ms-transform: translate(0px,-5px);transform: translate(0px,-5px);-webkit-box-shadow: 0 5px 10px rgba(67,72,84,.3);-moz-box-shadow: 0 5px 10px rgba(67,72,84,.3);-o-box-shadow: 0 5px 10px rgba(67,72,84,.3);box-shadow: 0 5px 10px rgba(67,72,84,.3);}
+.articles li {-webkit-transition: all .5s ease 0s;-moz-transition: all .5s ease 0s;-o-transition: all .5s ease 0s;}
+</style>
+<div class="main am-u-sm-12 am-u-md-12 am-u-lg-12 cont">
+<ul class="articles">
+{volist name="list" id="vo"}
+  <li class="post type-post status-publish format-link has-post-thumbnail hentry category-doc post_format-post-format-link" ><div class="post-img"><a href="/index/doc/make/{$vo.id}" title="既然已不再留恋,又何必在乎它飘不飘远" rel="bookmark"><img src="{$vo.thumb}" /></a></div>
+  <div class="post-header"><h3><a href="/index/doc/make/{$vo.id}" rel="bookmark" class="post-title" title = "{$vo.title}">{$vo.title}</a></h3></div>
+  <div class="post-content">{$vo.introduction}...</div>
+  </li>
+{/volist}
+
+</ul>
+<hr data-am-widget="divider" style="" class="am-divider am-divider-dashed" />
+
+<div class="paging">
+{$list->render()}
+</div>
+</div>
+		
+</div></div>﻿
+
+
+
+
+
+<style>
+.bottom-download-mask{display:none;position:fixed;bottom:0;z-index:99;width:100%;height:140px;background-color:rgba(0,0,0,.83)}.bottom-download-mask .close{position:absolute;right:20px;top:0;width:30px;height:30px;background:url(static/images/bottom-download-close-ad46035d39.jpg) center no-repeat;background-size:30px;cursor:pointer}.bottom-download-mask .wrapper{overflow:visible}.bottom-download-mask .download-area{float:left;width:457px;height:140px}.bottom-download-mask .download-area.collect-area{float:right;width:497px}.bottom-download-mask .download-area .desc-area{position:relative;float:left;width:224px;padding-left:30px}.bottom-download-mask .download-area.collect-area .desc-area{width:264px}.bottom-download-mask .download-area .desc-area:before{display:block;content:'1.';position:absolute;left:0;top:24px;font-size:22px;color:#fff;line-height:30px}.bottom-download-mask .download-area.collect-area .desc-area:before{content:'2.'}.bottom-download-mask .download-area .desc-area h3{font-size:22px;color:#fff;line-height:30px;padding-top:24px}.bottom-download-mask .download-area .desc-area h3 span{color:#FD6F6F}.bottom-download-mask .download-area .desc-area p{font-size:16px;color:#fff;line-height:22px;padding-top:13px}.bottom-download-mask .download-area .pic-area{position:relative;float:left;width:203px;height:147px;top:-15px;background:url(static/images/bottom-mask-bg-cb53820751.png) center no-repeat;background-size:203px 147px}.bottom-download-mask .download-area.collect-area .pic-area{background-image:url(static/images/bottom-collect-bg-077a07d7f8.png)}.bottom-download-mask .download-area .pic-area img{position:absolute;width:82px;height:82px;top:34px;left:62px}
+</style>
+
+{include file="com/bottom" /}

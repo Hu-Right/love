@@ -1,0 +1,82 @@
+
+﻿
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+    <meta charset="utf-8">
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!-- Site CSS -->
+<link href="/public/static/url/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+<!-- Favicons -->
+
+
+
+  </head>
+  <body >
+
+   
+  <div class="container" style="margin-top:10px;">
+			<div class="panel panel-default" style=" background:rgba(255,255,255,0.5)">
+			  <div class="panel-heading" style=" background:rgba(255,255,255,0.5)">
+				<h3 class="panel-title">恭喜呀! 制作成功</h3>
+			  </div>
+			  <div class="panel-body">
+				<div class="alert alert-warning" role="alert">默认网址：<a href="/index/show/makelist/{$list}" target="_blank"><span  id="moren" style="width:100%;word-break:break-all;display:block;word-warp:break-word;overflow:hidden;">{$url}/index/show/makelist/{$list}</span></a></div>
+				<div class="btn-group" role="group" style="width:100%" aria-label="...">
+				 <!-- <button type="button" style="width:50%"  class="btn btn-danger" onclick="duan()">一键复制短网址</button>-->
+				 <a href="https://www.meihuama.com/" target="_blank"> <button type="button" style="width:50%"  class="btn btn-danger">点击此处制作个性二维码</button></a>
+				  <button type="button" style="width:50%"  class="btn btn-warning" onclick="moren()">一键复制默认网址</button>
+				  <p style="text-align:center;"><img src="http://qr.topscan.com/api.php?text={$url}/index/show/makelist/{$list}" /></p>
+				 
+				  <div class="" style="text-align:center;"> <span class="label label-danger">也可以保存二维码扫描访问哦！ 长按或右键即可保存二维码</span></div>
+				</div>
+			  </div>
+			</div>
+  </div>
+    
+
+
+<script src="/public/static/url/js/jquery.min.js"></script>
+<script src="/public/static/url/js/bootstrap.min.js"></script>
+
+<script>
+	function duan() {
+		var Url2 = document.getElementById("duan").innerText;
+		var oInput = document.createElement('input');
+		oInput.value = Url2;
+		document.body.appendChild(oInput);
+		oInput.select();
+		document.execCommand("Copy"); 
+		oInput.className = 'oInput';
+		oInput.style.display = 'none';
+		alert('复制成功');
+	}
+	function moren() {
+		var Url2 = document.getElementById("moren").innerText;
+		var oInput = document.createElement('input');
+		oInput.value = Url2;
+		document.body.appendChild(oInput);
+		oInput.select();
+		document.execCommand("Copy"); 
+		oInput.className = 'oInput';
+		oInput.style.display = 'none';
+		alert('复制成功');
+	}
+</script>
+
+
+    
+  </body>
+</html>

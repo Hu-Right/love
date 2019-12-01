@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head> 
+  <meta charset="UTF-8" /> 
+  <meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0" /> 
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" /> 
+    <title>零晨在线送头像</title>
+  <meta name="keywords" content="表白网页,零晨入口,表白网址" /> 
+<meta name="description" content="零晨在线送头像-制作于www.0crk.com零晨入口" />  
+  <style>
+  body{
+    background:#ff4b3d;
+    background-size:100%;
+    background-repeat: no-repeat
+  }
+    body {
+      font-size: 20px;
+      text-align: center;
+      margin: 0;
+    }
+    label {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      font-size: 10px;
+    }
+    .header {
+      color: #108757;
+      height: 3rem;
+    }
+    #cvs {
+      display: none;
+      margin: 0 auto;
+    }
+    .canvas-container {
+      margin: 0 auto;
+    height:auto!important;
+    text-align: center;
+    }
+    .hide, #exportBtn,#change {
+      display: none;
+    }
+    .body,#export{
+      margin: 4rem auto 3rem;
+      height: 15rem;
+      width: 15rem;
+      border: solid 1px #aaa;
+      box-shadow: 0 0 5px #aaa;
+      border-radius: 1rem;
+      line-height: 15rem;
+      position: relative;
+    
+    background: #fff;
+    border: .25rem solid #fbe6b5;
+    border-radius: .75rem;
+    font-size: 0;
+    }
+    #export {
+      display: none;
+      margin: 0 auto;
+    margin-top:4rem;
+    }
+    .footer {
+      width: 90%;
+    text-align: center;
+    display: inline-block;
+    }
+  .header{
+      width: 70%;
+    text-align: center;
+    display: inline-block;
+  margin-top:20%;
+  }
+  .header img{
+  width:100%;
+  
+  }
+  #cvs{
+    margin: 4rem auto 3rem;
+      height: 15rem!important;
+      width: 15rem!important;
+      border: solid 1px #aaa;
+      box-shadow: 0 0 5px #aaa;
+      border-radius: 1rem;
+      line-height: 15rem;
+    background: #fff;
+    border: .25rem solid #fbe6b5;
+    border-radius: .75rem;
+    font-size: 0;
+    position: initial!important;
+  }
+  .shangchuantouxiang{
+  }
+  .shangchuantouxiang img{
+  margin-top: 110%;
+    width:100%;
+  }
+  .footer img{
+    width:45%;
+    display: inline-block;
+    float: left;
+  }
+  #tip{
+    background-image: radial-gradient(circle at 7% 0,#fff,#feff74);
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 1.7px;
+    text-align: center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .next{
+      background-image: url(https://mat1.gtimg.com/bbs/static/20190829-btn.png);
+    background-size: contain;
+    border-radius: 50%;
+    width: 2.275rem;
+    height: 2.275rem;
+  position: absolute;
+    right: 0;
+    top: 0}
+  .upper-canvas{
+  display:none!important;}
+  </style> 
+ </head> 
+ <body> 
+  <div class="header"> 
+   <img src="/public/static/url/19/picture/20190906-logo2.png" /> 
+   <img src="/public/static/url/19/picture/20190906-logo3.png" /> 
+  </div> 
+  <div class="body" id="uploadContainer"> 
+   <div class="shangchuantouxiang" id="uploadText">
+    <img src="/public/static/url/19/picture/btn3.png" />
+   </div> 
+   <input id="upload" type="file" onchange="viewer()" style="height: 15rem; width: 15rem; position: absolute; top: 0; left: 0; opacity: 0" /> 
+  </div> 
+  <img id="export" alt="上传头像" src="" /> 
+  <canvas id="cvs"></canvas> 
+  <p id="tip" style="opacity: 0"></p> 
+  <div class="footer"> 
+   <img id="change" onclick="changeHat()" src="/public/static/url/19/picture/btn2.png" /> 
+   <img id="exportBtn" onclick="exportFunc()" src="/public/static/url/19/picture/btn1.png" /> 
+  </div> 
+  <div style="display: none"> 
+   <img id="img" src="" alt="" /> 
+   <img class="hide" id="hat0" src="/public/static/url/19/picture/head-1.png" /> 
+   <img class="hide" id="hat1" src="/public/static/url/19/picture/head-2.png" /> 
+   <img class="hide" id="hat2" src="/public/static/url/19/picture/head-3.png" /> 
+   <img class="hide" id="hat3" src="/public/static/url/19/picture/head-4.png" /> 
+   <img class="hide" id="hat4" src="/public/static/url/19/picture/head-5.png" /> 
+  </div> 
+  <script src="https://cdn.bootcss.com/fabric.js/2.0.0-rc.3/fabric.min.js"></script> 
+  <script>
+  console.log(document.body.clientWidth);
+  var kuan = document.body.clientWidth;
+  document.getElementById("uploadText").onclick = function(){
+  document.getElementById('upload').click();
+  }
+  var cvs=document.getElementById("cvs");var ctx=cvs.getContext("2d");var exportImage=document.getElementById("export");var img=document.getElementById("img");var hat="hat1";var canvasFabric;var hatInstance;var screenWidth=window.screen.width<500?window.screen.width:kuan;function viewer(){var file=document.getElementById("upload").files[0];console.log(file);var reader=new FileReader;if(file){reader.readAsDataURL(file);reader.onload=function(e){img.src=reader.result;img.onload=function(){img2Cvs(img)}}}else{img.src=""}}function img2Cvs(img){cvs.width=kuan;cvs.height=kuan;cvs.style.display="block";canvasFabric=new fabric.Canvas("cvs",{width:kuan,height:kuan,backgroundImage:new fabric.Image(img,{scaleX:screenWidth/img.width,scaleY:screenWidth/img.height})});changeHat();document.getElementById("uploadContainer").style.display="none";document.getElementById("uploadText").style.display="none";document.getElementById("upload").style.display="none";document.getElementById("change").style.display="block";document.getElementById("exportBtn").style.display="block";document.getElementById("tip").style.opacity=1}function changeHat(){document.getElementById(hat).style.display="none";var hats=document.getElementsByClassName("hide");hat="hat"+(+hat.replace("hat","")+1)%hats.length;var hatImage=document.getElementById(hat);hatImage.style.display="block";if(hatInstance){canvasFabric.remove(hatInstance)}hatInstance=new fabric.Image(hatImage,{top:0,left:0,scaleX:kuan/hatImage.width,scaleY:kuan/hatImage.height,cornerColor:"#0b3a42",cornerStrokeColor:"#fff",cornerStyle:"circle",transparentCorners:false,rotatingPointOffset:30});hatInstance.setControlVisible("bl",false);hatInstance.setControlVisible("tr",false);hatInstance.setControlVisible("tl",false);hatInstance.setControlVisible("mr",false);hatInstance.setControlVisible("mt",false);canvasFabric.add(hatInstance)}function exportFunc(){document.getElementsByClassName("canvas-container")[0].style.display="none";document.getElementById("exportBtn").style.display="none";document.getElementById("tip").innerHTML="长按图片保存或分享";document.getElementById("change").style.display="none";cvs.style.display="none";exportImage.style.display="block";exportImage.src=canvasFabric.toDataURL({width:screenWidth,height:screenWidth})}
+</script>   
+ </body>
+</html>

@@ -1,0 +1,107 @@
+{include file="com/head" /}
+
+<div id="m-container"><div class="imo-container am-container">
+
+<div class="main am-u-sm-12 am-u-md-8 am-u-lg-8 cont"><div class="qqfengget"><header class="single-header"><h2>{$alist.title}<p class="edit"></p></h2></header>
+
+<div class="single-meta"><span class="item">{$alist.publish_time}</span><span class="item"><span class="text-muted">当前位置：<a href='/'>主页</a> > <a href='/index/idea'>浪漫表白创意点子</a> > <a href="javascript:()" id="yh"><span onclick="youhua()" class="item smnone" style="color: #999;">关闭侧边栏</span></a>
+<script>
+	function youhua(){
+		var wmain = document.getElementsByClassName('main')[0];
+		var wsidebar = document.getElementsByClassName('sidebar')[0];
+		var yh = document.getElementById('yh');
+		wmain.className='main am-u-lg-12 am-animation-fade';
+		wsidebar.className='sidebar am-hide';
+		yh.innerHTML="<span onclick='guanbiyh()' class='item smnone' style='color: #999;'>开启侧边栏</span>";
+	}
+	function guanbiyh(){
+		var wmain = document.getElementsByClassName('main')[0];
+		var wsidebar = document.getElementsByClassName('sidebar')[0];
+		var yh = document.getElementById('yh');
+		wmain.className='main am-u-sm-12 am-u-md-8 am-u-lg-8 cont am-animation-fade';
+		wsidebar.className='sidebar am-u-lg-4 am-u-md-4 am-u-sm-12 am-animation-fade';
+		yh.innerHTML="<span onclick='youhua()' class='item smnone' style='color: #999;'>关闭侧边栏</span>";
+	}
+	</script>
+</div>
+
+<div class="single-content">
+<blockquote>{$alist.introduction}</blockquote>
+<div>
+    {$alist.content}
+
+  </div>
+<br />
+
+
+
+		<div class="single-copyright"><i class="am-icon-warning"></i> 未经允许不得转载：<a href="/">零晨入口</a> &raquo; <a href="#">{$alist.title}</a></div>
+		
+</div>
+<div style="overflow:scroll;overflow-x:hidden;text-align:center;padding:0 10px 0 0">
+
+</div>
+
+<div class="am-cf"></div><br/>
+<div class="bdsharebuttonbox"><span class="fxd">分享到：</span><a class="bds_qzone" data-cmd="qzone"></a><a class="bds_tsina" data-cmd="tsina"></a><a class="bds_weixin" data-cmd="weixin"></a><a class="bds_tqq" data-cmd="tqq"></a><a class="bds_sqq" data-cmd="sqq"></a><a class="bds_bdhome" data-cmd="bdhome"></a><a class="bds_tqf" data-cmd="tqf"></a><a class="bds_renren" data-cmd="renren"></a><a class="bds_diandian" data-cmd="diandian"></a><a class="bds_youdao" data-cmd="youdao"></a><a class="bds_ty" data-cmd="ty"></a><a class="bds_kaixin001" data-cmd="kaixin001"></a><a class="bds_taobao" data-cmd="taobao"></a><a class="bds_douban" data-cmd="douban"></a><a class="bds_fbook" data-cmd="fbook"></a><a class="bds_twi" data-cmd="twi"></a><a class="bds_mail" data-cmd="mail"></a><a class="bds_copy" data-cmd="copy"></a></div>
+
+<br/>
+<nav class="article-nav">
+{if condition="$shang['start'] eq 0"}
+    <span class="article-nav-prev"> 上一篇：<a href='#'>没有啦</a> </span>
+{else /} 
+     <span class="article-nav-prev"> 上一篇：<a href='/index/idea/make/{$shang.id}'>{$shang.title}</a> </span>
+{/if}
+
+{if condition="$xia['start'] eq 0"}
+    <span class="article-nav-next"> 下一篇：<a href='#'>没有啦</a> </span>
+{else /} 
+    <span class="article-nav-next"> 下一篇：<a href='/index/idea/make/{$xia.id}'>{$xia.title}</a> </span>
+{/if}
+</nav>
+<h3 class="htitle"><strong>更多精彩</strong></h3><div style="text-align:center;verflow: hidden;">
+
+
+</div>
+<h3 class="htitle"><strong>相关推荐</strong></h3>
+
+
+
+
+	<!-- 相关文章 -->
+	<div class="xiangguan">
+   {volist name="videolist" id="vo"}
+					<div class="am-u-lg-3 am-u-md-3 am-u-sm-6" style="padding:6px">
+				<a href="/index/idea/make/{$vo.id}"><img class="xianguanimg" src="{$vo.thumb}"/></a>
+					<p class="post-related-title xguanp"><a href="/index/idea/make/{$vo.id}" rel="bookmark" class="post-title" title="{$vo.title}">{$vo.title}</a></p>               
+	            </div>
+  {/volist}
+</div>
+	<div class="am-cf"></div><h3 class="htitle"><strong>评论互动</strong></h3>
+
+<!--PC版-->
+<div id="SOHUCS" sid="102" ></div>
+<script charset="utf-8" type="text/javascript" src="/public/static/home/js/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+appid: 'cyueJRFTa',
+conf: 'prod_61f94d8628707baa982d8339aae06497'
+});
+</script>
+ </div><script>document.oncontextmenu=new Function('event.returnValue=false;');document.onselectstart=new Function('event.returnValue=false;');</script></div>
+ 
+ 
+ 
+  <div class="sidebar am-u-lg-4 am-u-md-4 am-u-sm-12">
+	<div class="sidebar">
+		<section class="widget widget_text"><h3 class="widget_tit">创意表白</h3>			
+			
+			<a href="/video" target= "_blank" ><img src="/public/static/home/picture/r1.png" style="width:100%;"></a>
+		</section>
+	</div>		
+	
+</div>
+
+</div>
+
+{include file="com/bottom" /}

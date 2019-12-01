@@ -1,0 +1,61 @@
+{include file="com/head" /}
+<div id="m-container"><div class="imo-container am-container">
+
+
+<div class="main am-u-sm-12 am-u-md-8 am-u-lg-8 cont"><div class="listtop qqfengget"><h2>Category Archives: 全球浪漫创意点子</h2><p>整合分享来自全球的浪漫惊喜创意,情侣间各种制造惊喜的方案,以及优质的求婚创意计划。</p>
+</div>
+<div class="qqfengget">
+
+{volist name="list" id="vo"}
+<article class="post type-post status-publish format-standard has-post-thumbnail hentry category-idea" >
+		<div class="focus">
+			<a href="/index/idea/make/{$vo.id}">
+			<span class="item"><span class="thumb-span">
+									<img src="{$vo.thumb}" class="thumb">							</span></span>
+			</a>
+		</div>
+		<div class="note">
+			<h2>
+				<a href="/index/idea/make/{$vo.id}" title="{$vo.title}" class="post-title">{$vo.title}</a>
+				<small class="text-muted" title="6张图片"><span class="am-icon-photo"></span> </small>
+			</h2>
+			<div class="posts-text smnone">{$vo.introduction}...</div>
+			<ul class="post-muted">
+				<li class="post-author"><div class="avatar"><img src="/public/static/home/picture/wordpress-logo.png"></div>{$vo.author},  ({$vo['create_time']})发布</li>
+			</ul>
+		</div>
+</article>
+{/volist}
+
+
+</div>
+
+
+
+<div class="paging">
+{$list->render()}
+</div>
+
+
+</div>
+ <div class="sidebar am-u-lg-4 am-u-md-4 am-u-sm-12">
+	<div class="sidebar">
+		<section class="widget widget_text"><h3 class="widget_tit">创意表白</h3>			
+			
+			<a href="/video" target= "_blank" ><img src="/public/static/home/picture/r1.png" style="width:100%;"></a>
+		</section>
+	</div>		
+	
+</div>
+  
+  </div>
+	
+	
+	</div>﻿
+
+<style>
+.bottom-download-mask{display:none;position:fixed;bottom:0;z-index:99;width:100%;height:140px;background-color:rgba(0,0,0,.83)}.bottom-download-mask .close{position:absolute;right:20px;top:0;width:30px;height:30px;background:url(/public/static/home/images/bottom-download-close-ad46035d39.jpg) center no-repeat;background-size:30px;cursor:pointer}.bottom-download-mask .wrapper{overflow:visible}.bottom-download-mask .download-area{float:left;width:457px;height:140px}.bottom-download-mask .download-area.collect-area{float:right;width:497px}.bottom-download-mask .download-area .desc-area{position:relative;float:left;width:224px;padding-left:30px}.bottom-download-mask .download-area.collect-area .desc-area{width:264px}.bottom-download-mask .download-area .desc-area:before{display:block;content:'1.';position:absolute;left:0;top:24px;font-size:22px;color:#fff;line-height:30px}.bottom-download-mask .download-area.collect-area .desc-area:before{content:'2.'}.bottom-download-mask .download-area .desc-area h3{font-size:22px;color:#fff;line-height:30px;padding-top:24px}.bottom-download-mask .download-area .desc-area h3 span{color:#FD6F6F}.bottom-download-mask .download-area .desc-area p{font-size:16px;color:#fff;line-height:22px;padding-top:13px}.bottom-download-mask .download-area .pic-area{position:relative;float:left;width:203px;height:147px;top:-15px;background:url(/public/static/home/images/bottom-mask-bg-cb53820751.png) center no-repeat;background-size:203px 147px}.bottom-download-mask .download-area.collect-area .pic-area{background-image:url(/public/static/home/images/bottom-collect-bg-077a07d7f8.png)}.bottom-download-mask .download-area .pic-area img{position:absolute;width:82px;height:82px;top:34px;left:62px}
+</style>
+
+
+{include file="com/bottom" /}

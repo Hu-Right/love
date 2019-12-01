@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML5电子杂志翻书动画特效</title><base target="_blank" />
+<link type="text/css" href="/public/static/url/23/css/main.css" rel="stylesheet" media="screen" />
+    <style>
+    	.hovertreeinfo{text-align:center;}
+    </style>
+<embed src="/public/static/url/23/video/bg.mp3" hidden="true" autostart="true" loop="true" />	
+</head>
+ 
+<body>
+    <div class="hovertreeinfo"><h1>{$list.pro1}</h1></div>
+<div id="shineflip">
+	<div id="shineflip-pages">
+		<canvas id="shineflip-canvas"></canvas>
+		<canvas id="shineflip-page-mid-canvas"></canvas>
+		<section class="page">
+			<div><img src="{$list.img1}" width="475" height="482" /></div>
+			<span style="left:18px;"><img src="/public/static/url/23/images/zh.png" height="482" /></span> 
+		</section>
+		<section class="page" style="background:url(/public/static/url/23/images/left_pk.jpg)">
+			<div><img src="/public/static/url/23/images/1.jpg" width="466" height="463" style="float:right;margin-top:9px;" /></div>
+		</section>
+		<section class="page">
+			<div><img src="{$list.img2}" width="466" height="463" style="float:left;margin-top:9px;" /></div>
+		</section>
+		<section class="page">
+			<div><img src="{$list.img3}" width="466" height="463" style="float:right;margin-top:9px;" /></div>
+		</section>
+		<section class="page" style="background:url(/public/static/url/23/images/right_pk.jpg)">
+			<div><img src="{$list.img4}" width="466" height="463" style="float:left;margin-top:9px;" /></div>
+		</section>
+		<section class="page">
+			<div><img src="{$list.img5}" width="466" height="463" style="float:right;margin-top:9px;" /></div>
+		</section>
+		<section class="page" style="background:url(/public/static/url/23/images/right_pk.jpg)">
+			<div><img src="{$list.img6}" width="466" height="463" style="float:left;margin-top:9px;" /></div>
+		</section>
+		<section class="page">
+			<div><img src="{$list.img1}" width="466" height="463" style="float:right;margin-top:9px;" /></div>
+		</section>
+		<section class="page" style="background:url(/public/static/url/23/images/right_pk.jpg)">
+			<div><img src="{$list.img2}" width="466" height="463" style="float:left;margin-top:9px;" /></div>
+		</section>
+		<section class="page">
+			<div><img src="{$list.img3}" width="466" height="463" style="float:right;margin-top:9px;" /></div>
+		</section>
+		<section class="page" style="background:url(/public/static/url/23/images/right_pk.jpg)">
+			<div><img src="{$list.img4}" width="466" height="463" style="float:left;margin-top:9px;" /></div>
+		</section>
+		<section class="page">
+			<div><img src="{$list.img5}" width="466" height="463" style="float:right;margin-top:9px;" /></div>
+		</section>
+		<section class="page" style="background:url(/public/static/url/23/images/right_pk.jpg)">
+			<div><img src="{$list.img6}" width="466" height="463" style="float:left;margin-top:9px;" /></div>
+		</section>
+		<section class="page">
+			<div><img src="{$list.img4}" width="466" height="463" style="float:right;margin-top:9px;" /></div>
+		</section>
+		<section class="page" style="background:url(/public/static/url/23/images/right_pk.jpg)">
+			<div><img src="{$list.img2}" width="466" height="463" style="float:left;margin-top:9px;" /></div>
+		</section>
+		<section class="page">
+			<div><img src="{$list.img6}" width="475" height="482" /></div>
+			<span style="right:18px;"><img src="/public/static/url/23/images/zh.png" height="482" /></span> 
+		</section>
+	</div>
+</div>
+
+<script type="text/javascript" src="/public/static/url/23/js/shineflip_min.js"></script>
+<script type="text/javascript">
+var shineFlip = new ShineFlip({
+	// autoFitScreen: true,
+	width: 950,
+	height: 482,
+	page_width: 475,
+	page_height: 482
+});
+</script>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html><SCRIPT Language=VBScript><!--
+
+//--></SCRIPT>

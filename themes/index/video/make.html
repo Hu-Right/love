@@ -1,0 +1,131 @@
+{include file="com/head" /}
+
+
+<div id="m-container"><div class="imo-container am-container">
+
+<link rel="stylesheet" type="text/css" href="/public/static/home/css/videoplay.css"/>
+<script src="/public/static/home/js/willesplay.js" type="text/javascript" charset="utf-8"></script>
+<div class="main am-u-sm-12 am-u-md-12 am-u-lg-12 cont"><div class="qqfengget"><div class="video-content"><div class="am-u-sm-12 am-u-md-7 am-u-lg-8"><header style="margin-bottom: 8px;">
+<div class="bdsharebuttonbox"><span class="fxd">分享到：</span><a class="bds_qzone" data-cmd="qzone"></a><a class="bds_tsina" data-cmd="tsina"></a><a class="bds_weixin" data-cmd="weixin"></a><a class="bds_copy" data-cmd="copy"></a></div>
+
+</header>
+<style type="text/css">
+.edui-upload-video{
+  width: 100%;
+  height:100%;
+  border-radius: 4px;
+}
+</style>
+<div id="willesPlay">
+  <div class="playContent">
+    {$list.content}
+    <div class="playTip am-icon-play">
+  </div>
+</div>
+  <div class="playControll">
+    <div class="timebar">
+      <span class="currentTime am-show-lg-only">0:00:00</span>
+      <div class="progress">
+        <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+        </div>
+      </div>
+      <span class="duration am-show-lg-only">0:00:00</span></div><div class="otherControl">
+    <div class="volumeBar">
+  <div class="volumewrap">
+<div class="progress">
+<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 8px;height: 40%;">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h3 class="htitle"><strong>相关推荐</strong></h3><style>.xianguanimg{height:auto !important;}.xiangguan{text-align: center !important;}</style>
+
+
+
+
+	<!-- 相关文章 -->
+	<div class="xiangguan">
+  {volist name="videolist" id="vo"}
+		<div class="am-u-lg-3 am-u-md-3 am-u-sm-6" style="padding:6px">
+				<a href="/index/video/make/{$vo.id}"><img class="xianguanimg" src="{$vo.thumb}"/></a>
+					<p class="post-related-title xguanp"><a href="/index/video/make/{$vo.id}" rel="bookmark" class="post-title" title="{$vo.title}">{$vo.title}</a></p>               
+	   </div>
+  {/volist}
+
+  </div>
+
+	<div class="am-cf"></div><h3 class="htitle"><strong>常见问题</strong></h3>
+	
+	<div class="content-x">
+	<strong>支付和发货</strong>
+	<p>
+		支付方式目前支持：站内购买/支付宝和微信转账付款。发货方式默认采用QQ文件/邮箱形式发送或者网盘下载形式发送。</p>
+	<strong>常见问题</strong>
+	<p>
+		问：支付成功后我该怎么做？</p>
+	<p>
+		答：支付成功后联系<b>客服人员</b>,按照客服人员发送的文档准备好并发送相关材料，我们会在收到您的材料后按照款式要求的时间内完成制作。</p>
+	<p>
+		问：视频做好后想要修改怎么办？</p>
+	<p>
+		答：制作之前检查好，完成后不可修改</p>
+	<p>
+		问：视频是什么格式的？</p>
+	<p>
+		答：完成后的视频是MP4通用格式，手机、电脑、平板、电视、投影仪、KTV等都可以播放</p>
+	<p>
+		问：表白视频多长有效期</p>
+	<p>
+		答：由用户自己保存</p>
+</div>
+
+	
+	</div><div class="am-u-sm-12 am-u-md-5 am-u-lg-4">
+	
+	
+	<div class="videor">
+	<div class="videot"><span>视频名称</span><span>{$list.title}</span></div>
+	<div class="videot"><span>视频标签</span><span class="biaoqian">
+
+			<i>男向女表白</i>
+　　
+			<i>女向男表白</i>
+　　
+			<i>求婚视频</i>
+　　
+
+
+
+
+
+</span></div>
+	<div class="videot"><span>视频价格</span><p style="margin-top: 1rem;margin-bottom: 1rem;"><font style="font-size:30px;color: #ED2E5B;">￥</font><font id="jia" style="color: #ED2E5B;font-size: 40px;font-weight: bold">{$list.author}</font></p>
+
+<a href="http://wpa.qq.com/msgrd?v=3&amp;uin={$baseConfig.api_account}&amp;site=qq&amp;menu=yes" target="_blank"> <button type="button" class="am-btn am-btn-warning am-btn-block am-radius"><i class="am-icon-qq"></i> 点击联系客服定制</button></a>
+</div>
+
+<div class="videot">{$list.introduction}</div>
+
+
+
+<div class="videot"><span>提供者</span><p class="tigong"><img src="/public/static/home/picture/wordpress-logo.png"><span>{$baseConfig.site_title}<br/>服务QQ：{$baseConfig.api_account}</span></p></div></div></div></div><div style="clear:both"></div></div></div>
+
+
+</div></div>
+<!--分享-->
+ <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["sqq","weixin","qzone","tsina","copy"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+<!--分享end-->
+
+﻿
+
+
+<style>
+.bottom-download-mask{display:none;position:fixed;bottom:0;z-index:99;width:100%;height:140px;background-color:rgba(0,0,0,.83)}.bottom-download-mask .close{position:absolute;right:20px;top:0;width:30px;height:30px;background:url(/public/static/home/images/bottom-download-close-ad46035d39.jpg) center no-repeat;background-size:30px;cursor:pointer}.bottom-download-mask .wrapper{overflow:visible}.bottom-download-mask .download-area{float:left;width:457px;height:140px}.bottom-download-mask .download-area.collect-area{float:right;width:497px}.bottom-download-mask .download-area .desc-area{position:relative;float:left;width:224px;padding-left:30px}.bottom-download-mask .download-area.collect-area .desc-area{width:264px}.bottom-download-mask .download-area .desc-area:before{display:block;content:'1.';position:absolute;left:0;top:24px;font-size:22px;color:#fff;line-height:30px}.bottom-download-mask .download-area.collect-area .desc-area:before{content:'2.'}.bottom-download-mask .download-area .desc-area h3{font-size:22px;color:#fff;line-height:30px;padding-top:24px}.bottom-download-mask .download-area .desc-area h3 span{color:#FD6F6F}.bottom-download-mask .download-area .desc-area p{font-size:16px;color:#fff;line-height:22px;padding-top:13px}.bottom-download-mask .download-area .pic-area{position:relative;float:left;width:203px;height:147px;top:-15px;background:url(/public/static/home/images/bottom-mask-bg-cb53820751.png) center no-repeat;background-size:203px 147px}.bottom-download-mask .download-area.collect-area .pic-area{background-image:url(/public/static/home/images/bottom-collect-bg-077a07d7f8.png)}.bottom-download-mask .download-area .pic-area img{position:absolute;width:82px;height:82px;top:34px;left:62px}
+</style>
+
+
+
+{include file="com/bottom" /}

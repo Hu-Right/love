@@ -1,0 +1,146 @@
+{extend name="base" /}
+{block name="body"}
+<link rel="stylesheet" type="text/css" href="/public/static/dingwei/css/examples.css">
+<script type="text/javascript" src="/public/static/dingwei/js/jquery.js"></script>
+<script type="text/javascript" src="/public/static/dingwei/js/jquery.event.ue.js"></script>
+<script type="text/javascript" src="/public/static/dingwei/js/jquery.udraggable.js"></script>
+<style type="text/css">
+    .right-arrow {
+        position: absolute;
+        width: 64px;
+        margin-top: -0.2rem;
+        right: 20px;
+        height: 38px;
+        line-height: 38px;
+        padding: 0 18px;
+        background-color: #009688;
+        color: #fff;
+        white-space: nowrap;
+        text-align: center;
+        font-size: 14px;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+    .right-arrow:hover{
+        color: #000;
+    }
+</style>
+
+
+
+<div class="layui-body">
+    <!--tab标签-->
+    <div class="layui-tab layui-tab-brief">
+        <ul class="layui-tab-title">
+            <li class=""><a href="{:url('index')}">图片管理</a></li>
+            <li class="layui-this">设置图片</li>
+            <a href="javascript:history.go(-1)" class="right-arrow">返回</a>
+
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form form-container" action="{:url('set')}" method="post">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">字体大小</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="size" value="{$list.size}" id="size" required  lay-verify="required" placeholder="请输入字体" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">字体颜色</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="sizecol" value="{$list.sizecol}" required  lay-verify="required" placeholder="字体颜色16进制" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">倾斜角度</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="incline" value="{$list.incline}" required  lay-verify="required" placeholder="请输入角度" class="layui-input">
+                        </div>
+                    </div>
+
+                     <div class="layui-form-item">
+                        <label class="layui-form-label">行(0)/列(1)</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="type" value="{$list.type}" required  lay-verify="required" placeholder="" class="layui-input">
+                        </div>
+                    </div>
+                    
+
+                    <div class="arena">
+                        <img src="{$list.img}">
+                        <div id="drag14" style="position: absolute; top: 105px; left: 135px; right: auto; bottom: auto;"></div>
+                    </div>
+
+
+                    <input type="" id="x1" name="x1" value="{$list.x1}">
+                    <input type="" id="y1" name="y1" value="{$list.y1}">
+
+                    <div class="arena" style="margin-top: 20px;">
+                        <img src="{$list.img}">
+                        <div id="drag15" style="position: absolute; top: 105px; left: 135px; right: auto; bottom: auto;"></div>
+                    </div>
+
+                    <input type="" id="x2" name="x2" value="{$list.x2}">
+                    <input type="" id="y2" name="y2" value="{$list.y2}">
+                   
+                    <div class="layui-form-item" style="margin-top: 50px;">
+                        <div class="layui-input-block">
+                            <input type="hidden" name="id" value="{$list.id}">
+                            <button class="layui-btn" lay-submit lay-filter="*">设置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+$('#drag14').udraggable({
+    distance: 15,
+    containment: 'parent',
+    start: function () {
+      $('#stat-mode').text('Dragging');
+    },
+    stop: function () {
+      $('#stat-mode').text('Idle');
+    },
+    drag: function (e, ui) {
+      var pos = ui.position
+      $('#x1').val(pos.left);
+      $('#y1').val(pos.top);
+    }
+});
+
+$('#drag15').udraggable({
+    distance: 15,
+    containment: 'parent',
+    start: function () {
+      $('#lbl-mode1').text('Dragging');
+    },
+    stop: function () {
+      $('#stat-mode1').text('Idle');
+    },
+    drag: function (e, ui) {
+      var pos = ui.position
+      $('#x2').val(pos.left);
+      $('#y2').val(pos.top);
+    }
+});
+
+$("#size").change(function(){
+    var size = $('#size').val();
+    $('#drag14').css('width',size)
+    $('#drag14').css('height',size)
+    $('#drag15').css('width',size)
+    $('#drag15').css('height',size)
+});
+</script>
+{/block}
+{block name="js"}
+{/block}
+{block name="script"}
+{/block}

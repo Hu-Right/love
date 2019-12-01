@@ -1,0 +1,240 @@
+{include file="com/head" /}
+
+
+<script src="/public/static/home/js/amazeui.min.js"></script>
+<script src="/public/static/home/js/index.js"></script>
+
+
+<div id="m-container"><div class="imo-container am-container">
+
+<style>.am-alert p{color:#fff}.single-content strong { margin-top: 0;color: #606060;font-size: 16px;font-weight: 700;border-left: 0;padding-left: 0;display: initial;}</style><div class="main am-u-sm-12 am-u-md-8 am-u-lg-8 cont"><div class="qqfengget">
+<header class="single-header"><legend>每日一句2.0<p class="edit"></p></legend><div id="sf">
+<div id="topts"><div style="overflow:scroll;overflow-x:hidden;text-align:center;padding:0 10px 0 0"></div></div>
+
+
+</div>
+</header>
+  <div style="display:none"><script src="/public/static/home/js/count.js"type='text/javascript' language="javascript"></script></div>
+<div class="single-content">
+
+<form action="/index/show/add" method="POST">
+    <input name="type" type="hidden" value="16" /> <!--/************网站标题S*****************/-->
+    <p class="input-t">
+        网站标题 *</p>
+    <input class="kuang" maxlength="14" name="title" placeholder="" required="required" type="text" value="" />
+    <!--/************网站标题E*****************/--><!--/************双方名字S*****************/-->
+   <p class="input-t">
+        按钮文字 *</p>
+    <input class="kuang" maxlength="6" name="boy" placeholder="男方姓名" required="required" style="width:50%;float:left;" type="text" value="">
+    <input class="kuang" maxlength="6" name="girl" placeholder="女方姓名" required="required" style="width:50%;" type="text" value="">
+    <div class="am-cf">
+        &nbsp;</div>
+ 
+    <!--/************说的话E*****************/--><!--/************照片上传S*****************/-->
+    <div>
+        <p class="input-t">
+            选择照片： * <b style="color: #DB5151;">【必须需要上传1张照片，正方形图片最好，网页中照片会被强制缩放正方形】</b></p>
+        <div class="am-panel am-panel-default biaodanimg">
+            <div class="demo clearfix" style="margin:120px auto">
+                <div class="emot_photo_video">
+                    <a class="item" id="btn" tabindex="1"><span>点击选择</span></a></div>
+            </div>
+            <div class="photo_upload_box_outside" id="photo_upload_box_outside" tabindex="2000">
+                <div class="photo_upload_box">
+                    <p class="upload_num">
+                        共<span id="uploaded_length">0</span>张，还能上传<span id="upload_other">1</span>张</p>
+                    <ul class="ul_pics clearfix" id="ul_pics">
+                        <li id="local_upload">
+                            <img id="btn2" src="/public/static/home/picture/local_upload.png" /></li>
+                    </ul>
+                    <div class="arrow_layer">
+                        &nbsp;</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear">
+        &nbsp;</div>
+     <!--
+    <div class="clear">
+        &nbsp;</div>
+    <!--/************照片上传E*****************/--><!--/************数据提交服务器 E*****************/--><!--<p class="input-t">数据提交服务器 *</p>
+<select id="fuwuqi"  data-am-selected="{btnWidth: '100%', btnSize: 'sm', btnStyle: 'secondary'}">
+<option value="fuwuqi0" selected>随机数据储存服务器</option>
+<option value="fuwuqi1">数据储存服务器一</option>
+<option value="fuwuqi2">数据储存服务器二</option>
+</select>--><!--/************数据提交服务器 S*****************/-->
+    <hr class="am-divider am-divider-dashed" data-am-widget="divider" style="" />
+    <div align="center">
+        <input class="am-btn am-btn-default" type="reset" value="清空重填" />&nbsp;&nbsp;&nbsp;<input class="am-btn am-btn-secondary" name="submit" type="submit" value="提交并预览" /></div>
+</form>
+<script type="text/javascript" src="/public/static/home/js/plupload.full.min.js"></script><script type="text/javascript">
+
+           var lilen = 0;
+                    var upload_total = 1;
+                    var uploader = new plupload.Uploader({
+                        runtimes: 'gears,html5,html4,silverlight,flash',
+                        browse_button: ['btn', 'btn2'],
+                        url: "/api/Upload/uploads",
+                        flash_swf_url: '/plupload/Moxie.swf',
+                        silverlight_xap_url: '/plupload/Moxie.xap',
+                        filters: {
+                            max_file_size: '2mb', 
+                            mime_types: [
+                                {title: "files", extensions: "jpg,png,gif,jpeg"}
+                            ]
+                        },
+                        multi_selection: false, 
+                        init: {
+                            FilesAdded: function(up, files) {
+                                var length_has_upload = $("#ul_pics").children("li").length;
+                                if (files.length >= upload_total) {
+                                    $("#local_upload").hide();
+                                }
+                                var li = '';
+                                plupload.each(files, function(file) {
+                                    if (length_has_upload <= upload_total) {
+                                        li += "<li class='li_upload' id='" + file['id'] + "'><div class='progress'><span class='bar'></span><span class='percent'>0%</span></div></li>";
+                                    }
+                                    length_has_upload++;
+                lilen ++;
+                                });
+                                $("#ul_pics").prepend(li);
+                                uploader.start();
+                            },
+                            UploadProgress: function(up, file) {
+                                var percent = file.percent;
+                                $("#" + file.id).find('.bar').css({"width": percent + "%"});
+                                $("#" + file.id).find(".percent").text(percent + "%");
+                            },
+                            FileUploaded: function(up, file, info) {
+                                showPhotoUploadBox($('#btn'));
+                                var uploaded_length = $(".img_common").length;
+                                if (uploaded_length <= upload_total) {
+                                    var data = eval("(" + info.response + ")");
+                                    
+                                    $("#" + file.id).html("<input type='hidden' name="+'img'+lilen+ " value='" + data.pic + "'/><img class='img_common' src='" + data.pic + "'/>");
+                                }
+                                showUploadBtn();
+                            },
+                            Error: function(up, err) {
+                                alert(err.message);
+                            }
+                        }
+                    });
+                    uploader.init();
+
+                    function delPic(pic, file_id) {
+                        $.post("del.php", {pic: pic}, function(data) {
+                            $("#" + file_id).remove();
+                            showUploadBtn();
+                        })
+                    }
+                    function showUploadBtn() {
+                        var uploaded_length = $(".img_common").length;
+                        $("#uploaded_length").text(uploaded_length);
+                        var other_length = (upload_total - uploaded_length) > 0 ? upload_total - uploaded_length : 0;
+                        $("#upload_other").text(other_length);
+                        var uploaded_length = $(".img_common").length;
+                        if (uploaded_length >= upload_total) {
+                            $("#local_upload").hide();
+                        } else {
+                            $("#local_upload").show();
+                        }
+                    }
+                    function showPhotoUploadBox(obj) {
+                        var left = obj.offset().left;
+                        var top = obj.offset().top - 190;
+                        $("#photo_upload_box_outside").css({"left": left, "top": top}).show()
+                    }
+                    function photo_upload_close() {
+                        $("#photo_upload_box_outside").fadeOut(500, function() {
+                            $(".li_upload").remove();
+                        })
+                    }
+        </script>
+
+
+
+
+        <div class="single-copyright"><i class="am-icon-warning"></i> 未经允许不得转载：<a href="/">零晨入口</a> » <a href="#">每日一句2.0</a></div>
+<div style="overflow:scroll;overflow-x:hidden;text-align:center;padding:0 10px 0 0">
+
+<script type="text/javascript" src="/public/static/home/js/c.js"></script>
+</div>
+
+<div class="am-cf"></div><br/><div class="bdsharebuttonbox"><span class="fxd">分享到：</span><a class="bds_qzone" data-cmd="qzone"></a><a class="bds_tsina" data-cmd="tsina"></a><a class="bds_weixin" data-cmd="weixin"></a><a class="bds_tqq" data-cmd="tqq"></a><a class="bds_sqq" data-cmd="sqq"></a><a class="bds_bdhome" data-cmd="bdhome"></a><a class="bds_tqf" data-cmd="tqf"></a><a class="bds_renren" data-cmd="renren"></a><a class="bds_diandian" data-cmd="diandian"></a><a class="bds_youdao" data-cmd="youdao"></a><a class="bds_ty" data-cmd="ty"></a><a class="bds_kaixin001" data-cmd="kaixin001"></a><a class="bds_taobao" data-cmd="taobao"></a><a class="bds_douban" data-cmd="douban"></a><a class="bds_fbook" data-cmd="fbook"></a><a class="bds_twi" data-cmd="twi"></a><a class="bds_mail" data-cmd="mail"></a><a class="bds_copy" data-cmd="copy"></a></div>
+<br/>
+
+</div>
+
+
+<div class="clear"></div><div class="am-popup" id="mp3-popup"><div class="am-popup-inner"><div class="am-popup-hd"><h4 class="am-popup-title">背景音乐搜索</h4><span class="am-close" data-am-modal-close="">×</span></div><div class="am-popup-bd" style="padding:0;"><iframe id="iframemp3" style="width:100%;height:680px"></iframe></div></div></div>
+
+
+<div class="am-cf"></div>
+<nav class="article-nav">
+
+{if condition="$shang['start'] eq 0"}
+    <span class="article-nav-prev"> 上一篇：<a href='#'>没有啦</a> </span>
+{else /} 
+     <span class="article-nav-prev"> 上一篇：<a href='/index/show/make/{$shang.id}'>{$shang.title}</a> </span>
+{/if}
+
+{if condition="$xia['start'] eq 0"}
+    <span class="article-nav-next"> 下一篇：<a href='/show/103.html'>没有啦</a> </span>
+{else /} 
+    <span class="article-nav-next"> 下一篇：<a href='/index/show/make/{$xia.id}'>{$xia.title}</a> </span>
+{/if}
+
+</nav>
+
+<!--
+<h3 class="htitle"><strong>猜你喜欢</strong></h3>
+<div style="overflow: hidden"></div>
+<h3 class="htitle"><strong>礼物推荐</strong></h3>
+<div style="overflow: hidden"><a data-type="2" biz-keyword="创意礼物" data-tmpl="720x220" data-tmplid="209" data-rd="2" data-style="2" data-border="1" href="#"></a></div>
+<h3 class="htitle"><strong>相关推荐</strong></h3>-->
+
+
+
+
+    <!-- 相关文章 -->
+    <div class="xiangguan">
+    {volist name="list" id="vo"}
+        <div class="am-u-lg-3 am-u-md-3 am-u-sm-6" style="padding:6px">
+          <a href="/index/show/make/{$vo.id}"><img class="xianguanimg" src="{$vo.thumb}"/></a>
+            <p class="post-related-title xguanp"><a href="/index/show/make/{$vo.id}" rel="bookmark" class="post-title" title="{$vo.title}.0">{$vo.title}</a></p>               
+        </div>
+    {/volist}
+    </div>
+    <div class="am-cf"></div>
+<!-- <h3 class="htitle"><strong>评论互动</strong></h3>
+ -->
+
+ </div></div>
+ 
+ <div class="sidebar am-u-lg-4 am-u-md-4 am-u-sm-12">
+    <div class="sidebar">
+        <section class="widget widget_text"><h3 class="widget_tit">创意表白</h3>            
+            
+            <a href="/index/video" target= "_blank" ><img src="/public/static/home/picture/r1.png" style="width:100%;"></a>
+        </section>
+    </div>      
+    
+</div>
+
+</div>
+
+﻿
+
+
+
+
+<style>
+.bottom-download-mask{display:none;position:fixed;bottom:0;z-index:99;width:100%;height:140px;background-color:rgba(0,0,0,.83)}.bottom-download-mask .close{position:absolute;right:20px;top:0;width:30px;height:30px;background:url(/public/static/home/images/bottom-download-close-ad46035d39.jpg) center no-repeat;background-size:30px;cursor:pointer}.bottom-download-mask .wrapper{overflow:visible}.bottom-download-mask .download-area{float:left;width:457px;height:140px}.bottom-download-mask .download-area.collect-area{float:right;width:497px}.bottom-download-mask .download-area .desc-area{position:relative;float:left;width:224px;padding-left:30px}.bottom-download-mask .download-area.collect-area .desc-area{width:264px}.bottom-download-mask .download-area .desc-area:before{display:block;content:'1.';position:absolute;left:0;top:24px;font-size:22px;color:#fff;line-height:30px}.bottom-download-mask .download-area.collect-area .desc-area:before{content:'2.'}.bottom-download-mask .download-area .desc-area h3{font-size:22px;color:#fff;line-height:30px;padding-top:24px}.bottom-download-mask .download-area .desc-area h3 span{color:#FD6F6F}.bottom-download-mask .download-area .desc-area p{font-size:16px;color:#fff;line-height:22px;padding-top:13px}.bottom-download-mask .download-area .pic-area{position:relative;float:left;width:203px;height:147px;top:-15px;background:url(/public/static/home/images/bottom-mask-bg-cb53820751.png) center no-repeat;background-size:203px 147px}.bottom-download-mask .download-area.collect-area .pic-area{background-image:url(/public/static/home/images/bottom-collect-bg-077a07d7f8.png)}.bottom-download-mask .download-area .pic-area img{position:absolute;width:82px;height:82px;top:34px;left:62px}
+</style>
+
+
+
+{include file="com/bottom" /}

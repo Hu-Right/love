@@ -1,0 +1,114 @@
+ <footer class="am-animation-delay-1 am-animation-slide-bottom am_footer" id="m-footer">
+   <div class="am_footer_con">
+    <div class="am_footer_link">
+     <span>附加服务</span>
+     <div class="menu-footer-nav-container">
+      <ul id="menu-footer-nav" class="menu">
+       <!--<li id="menu-item-187277" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-187277"><a href="hadditional">链接删除/永久保存</a></li> 
+       <li id="menu-item-187278" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-187278"><a target="_blank" href="http://hui.51bbw.cn">爱券券站点</a></li> -->
+      </ul>
+     </div>
+     <div class="am-show-md-up" style="width: 100%;">
+      <br />
+      <span>站内服务</span>
+      <ul>
+       <li><a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=c0c9a8ed45e2702781f9e999ca343685ad5897a0bc976e517e5d9f56d6ae8379"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="凌晨入口" title="凌晨入口"></a></li>
+       <li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin={$baseConfig.api_account}&amp;site=qq&amp;menu=yes" target="_blank">QQ客服</a></li>
+      </ul>
+      <br />
+      <span>友情链接</span>
+      <ul>
+       <!--<li><a href="http://www.0crk.com" target="_blank">表白墙</a></li>-->
+       <li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin={$baseConfig.api_account}&amp;site=qq&amp;menu=yes" rel="nofollow" target="_blank">在线客服</a></li>
+      </ul>
+     </div>
+    </div>
+    <div class="am_footer_don">
+     <span>零晨入口</span>
+     <dl>
+      <dt>
+       <img src="/public/static/home/picture/app-icon72x72@2x.png" />
+      </dt>
+      <dd>
+      {$baseConfig.seo_description}
+       <div class="am-show-lg-up">
+        当然您也可以通过下面选项分享给身边的朋友！
+        <div class="bdsharebuttonbox">
+         <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"> </a>
+         <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"> </a>
+         <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"> </a>
+         <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"> </a>
+         <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"> </a>
+        </div>
+      <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["sqq","weixin","qzone","tsina","copy"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+       </div>
+      </dd>
+     </dl>
+    </div>
+    <div class="am_footer_erweima">
+     <div class="tongjishu" style="clear:both;  padding-top: 10px;">
+      <div class="dibuzhandian">
+        {$baseConfig.api_password}- 
+       <a href="http://wpa.qq.com/msgrd?v=3&amp;uin={$baseConfig.api_account}&amp;site=qq&amp;menu=yes" target="_blank">联系我们</a>
+       <br />{$baseConfig.app_android}
+       <br />
+       <img src="/public/static/home/picture/baiduxylogo.png" title="百度保障" style="width: 90px;padding-top: 10px;" />
+       <img src="/public/static/home/picture/xy.png" title="百度信誉" style="width: 90px;padding-top: 10px;" />
+       <img src="/public/static/home/picture/qcloud-logo.png" title="腾讯云" style="width: 90px;padding-top: 10px;" /> 
+       <p class="am-icon-internet-explorer"> 本站由 <a href="http://wpa.qq.com/msgrd?v=3&amp;uin={$baseConfig.api_account}&amp;site=qq&amp;menu=yes" target="_blank">{$baseConfig.app_ios}</a> 提供技术支持</p>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="am_info_line">
+    Copyright &copy; 2014 - 2020 
+    <span class="heart am-icon-heart" style="color: #DB5151;"></span>&nbsp;
+    <a href="/">零晨入口 </a> All Rights Reserved
+   </div>
+  </footer> 
+
+  <script type="text/javascript" src="/public/static/home/js/19460591.js"></script>  
+ </body>
+</html>
+
+<script type="text/javascript">
+  $('.openloginc').click(function(){
+    $(".loginmask").css("display","block");
+    $("#loginalert").css("display","block");
+    $("#loginalert").css("top","56px");
+  })
+
+  $('.closealert').click(function(){
+    $(".loginmask").css("display","none");
+    $("#loginalert").css("display","none");
+    $("#loginalert").css("top","-600px");
+  })
+
+  $('#pingjia').click(function(){
+      var bid = $('#bid').val();
+      var cid = $('#cid').val();
+      var content = $('#replyContent').val();
+      $.ajax({
+          type: 'POST',
+          url: '{:url('index/add')}',
+          dataType: 'json',
+          data:{
+              bid:bid,
+              cid:cid,
+              content:content
+          },
+          success: function(data){
+              if (data.success ==0) {
+                alert('评论成功');
+              }else{
+                alert('网络不好请稍后重试!');
+              }
+          },
+          error:function(data) {
+              console.log(data.msg);
+          },
+      }); 
+  })
+</script>
+
+

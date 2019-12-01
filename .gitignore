@@ -1,0 +1,11 @@
+.idea/
+Runtime/
+XResource/
+*.iml
+.settings/*
+.classpath
+.project
+.user.ini
+404.html
+*/.vscode
+application/database.php

@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>{$list.title}</title>
+	<meta name="keywords" content="表白网页,零晨入口,表白网址" /> 
+<meta name="description" content="陈雪我爱你-制作于零晨入口" /> 
+<link href="favicon.ico" rel="shortcut icon" type="image/x-icon" /> 
+<link rel="stylesheet" href="/public/static/url/16/css/style.css">
+<link rel="stylesheet" href="/public/static/url/16/css/vidage.css" />
+<link rel="stylesheet" href="/public/static/url/16/css/ionicons.min.css">
+<link href="/public/static/url/16/css/mfb.css" rel="stylesheet">
+<!--[if IE]>
+	<script src="/public/static/url/16/js/html5shiv.min.js"></script>
+<![endif]-->
+<style>
+.cs{
+	text-align:center;
+    font-family:微软雅黑;
+	color:rgba(0, 150, 136, 0.59);
+}
+.cs h3{
+color:rgba(206, 0, 255, 0.41);
+}
+.cs h4{
+color:#bc87ff;
+}
+img#logo {
+    width: 128px;
+    background-size: cover;
+    border-radius: 200px;
+    box-shadow: 0px 0px 40px rgba(191, 128, 249, 0.72);
+    border: 3px solid #b400ff;
+    opacity: 1;
+    margin: 0 auto;
+    margin-top: 20px;
+	margin-bottom: 20px;
+	transition: all 1.0s;  
+}
+#logo:hover {
+    box-shadow: 0 0 10px #fff;
+    -webkit-box-shadow: 0 0 19px #fff;
+    transform:rotate(360deg);
+    -ms-transform:rotate(360deg); 	/* IE 9 */
+    -moz-transform:rotate(360deg); 	/* Firefox */
+    -webkit-transform:rotate(360deg); /* Safari 和 Chrome */
+    -o-transform:rotate(360deg); 	/* Opera */
+    filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+  .mfb-component__button--main, .mfb-component__button--child {
+   background-color: #3f00ff;
+  }
+</style>
+</head>
+<body>
+
+<div class="cs">
+	<br>
+	<img src="{$list.img1}" id="logo">
+	<h1 class="theme">{$list.title}</h1>
+	<h3 class="en_theme">{$list['times'] | date="Y-m-d",###}</h3>
+    <br>
+    <h4 class="time"> </h4>
+	 <br>
+	 <div class="h3" style="text-align:center">
+	 	我本是叼着烟开拖拉机的<br/>
+		自从遇到你<br/>
+		开始留意橱窗的裙子
+	 </div>
+	
+	<br><br>
+	 <div class="h5" style="text-align:center;color:#DC143C" >{$list.manuser}&{$list.wouser}</div>
+</div>
+<script src="/public/static/url/16/js/jquery.min.js"></script>
+
+</body>
+</html>

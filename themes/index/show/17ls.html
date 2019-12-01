@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{$list.title}</title>
+<link href="/public/static/url/17/style/main.css" rel="stylesheet" >
+</head>
+<style>
+	
+</style>
+<body>
+<!-- 	<audio src="{$list.url}" controls="controls" loop="loop" autoplay>亲 您的浏览器不支持html5的audio标签</audio> -->
+	<audio autoplay src="{$list.url}"></audio>
+	<div class="box" align="center">
+		<p>{$list.pro1}</p>
+		<h1>{$list.pro2}</h1>
+		<img src="{$list.img1}">
+		<div class="bottom">
+			<div class="left" id="hao">{$list.manuser}</div>
+			<div class="right" id="buhao">{$list.wouser}</div>
+		</div>
+	</div>
+	<input type="hidden" id="pro3" value="{$list.pro3}">
+
+	<input type="hidden" id="pro4" value="{$list.pro4}">
+	<input type="hidden" id="pro5" value="{$list.pro5}">
+	<input type="hidden" id="pro6" value="{$list.pro6}">
+	<input type="hidden" id="pro7" value="{$list.pro7}">
+	<input type="hidden" id="pro8" value="{$list.pro8}">
+	<input type="hidden" id="pro9" value="{$list.pro9}">
+	<input type="hidden" id="pro10" value="{$list.pro10}">
+
+
+</body>
+	<script src="/public/static/url/js/jquery.min.js"></script>
+	<script type="text/javascript">
+		// JavaScript Document
+		var pro3 = $('#pro3').val();
+		var pro4 = $('#pro4').val();
+		var pro5 = $('#pro5').val();
+		var pro6 = $('#pro6').val();
+		var pro7 = $('#pro7').val();
+		var pro8 = $('#pro8').val();
+		var pro9 = $('#pro9').val();
+		var pro10 = $('#pro10').val();
+
+		var Dianji=0;
+		window.onload=function(){
+			var buhao = document.getElementById("buhao");
+			var hao = document.getElementById("hao");
+			buhao.onclick=function(){
+				Dianji++;
+				if(Dianji==1){
+			   			alert(pro4);
+			   }else if(Dianji==2){
+				   		alert(pro5);
+				   		
+			   }else if(Dianji==3){
+				   		alert(pro6);
+				   		
+			   }else if(Dianji==4){
+				   		alert(pro7);
+				   		
+			  }else if(Dianji==5){
+				   		alert(pro8);
+			  }else if(Dianji==6){
+				   		alert(pro9);
+			  }else if(Dianji==7){
+				   		alert(pro10);
+				  		Dianji=1;
+			  }
+
+			}
+			hao.onclick=function(){
+				alert(pro3);
+			}
+			
+
+		}
+	</script>
+</html>
